@@ -26,7 +26,8 @@
                             <th>Category Name</th>
                             <th>Description</th>
                             <th>Image</th>
-                            <th>Edit/Delete</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,8 +39,9 @@
                             <td>{{$data->description}}</td>
                             <td><img src="{{asset($data->image)}}" alt="" height="50" width="100"></td>
                             <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="{{route('admin.category.edit',$data->id)}}"><i class="material-icons"  title="Edit">&#xE254;</i></a>
+                                {{--<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>--}}
+                            <td><a href="{{route('admin.category.delete',$data->id)}}" class="btn btn-danger" role="button">Delete</a></td>
                             </td>
                         </tr>
                     @endforeach
@@ -67,7 +69,7 @@
                 <form action="{{route('admin.form.category')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
-                        <h4 class="modal-title">Add Category</h4>
+                        <h4 class="modal-title">Add New Category</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -85,14 +87,8 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Upload Image</label>
                             <div class="input-group">
-                                <div class="custom-file">
-                                    <input name="image" type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="image">Upload Image</label>
-                                </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
                             </div>
+                            <input type="file" id="myFile" name="image">
                         </div>
 
                         

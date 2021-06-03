@@ -95,4 +95,61 @@ class DashboardController extends Controller
     {
         return view('admin.appointment');
     }
+
+    public function caseEdit($id){
+
+//            dd($id);
+        $case = CaseForm::findOrFail($id);
+
+//            dd($case);
+        return view('admin.caseEdit',compact('case'));
+
+    }
+
+    public function blogEdit($id){
+
+//        dd($id);
+        $blog=BlogForm::findOrFail($id);
+
+        return view('admin.blogEdit',compact('blog'));
+    }
+
+    public function serviceEdit($id){
+
+//            dd($id);
+            $service=ServiceForm::findOrFail($id);
+
+            return view('admin.serviceEdit',compact('service'));
+        }
+
+        public function testimonialsEdit($id){
+
+    //            dd($id);
+                $testimonial=TestimonialsForm::findOrFail($id);
+    //
+                return view('admin.testimonialsEdit',compact('testimonial'));
+            }
+    public function categoryEdit($id){
+
+//        dd($id);
+        $category=CategoryForm::findOrFail($id);
+
+        return view('admin.categoryEdit',compact('category'));
+    }
+    public function lawyerEdit($id){
+
+//        dd($id);
+        $lawyer=LawyerForm::findOrFail($id);
+
+        return view('admin.lawyerEdit',compact('lawyer'));
+    }
+
+    public function appointmentEdit($id){
+
+//        dd($id);
+        $appointment=AppointmentForm::findOrFail($id);
+
+        return view('admin.appointmentEdit',compact('appointment'));
+    }
+
 }

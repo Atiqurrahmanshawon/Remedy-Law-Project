@@ -34,15 +34,8 @@
                   <div class="form-group">
                     <label for="exampleInputFile">Upload Image</label>
                     <div class="input-group">
-                      <div class="custom-file">
-                        <input name="image" type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Upload Image</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
                     </div>
-                    {{--<input type="file" id="myFile" name="image">--}}
+                    <input type="file" id="myFile" name="image">
                   </div>
                 </div>
                 <!-- /.card-body -->

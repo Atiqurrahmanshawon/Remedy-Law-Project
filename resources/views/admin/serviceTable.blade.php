@@ -22,11 +22,12 @@
                     <thead>
                         <tr>
                             
-                            <th>$service->id</th>
+                            <th>ID</th>
                             <th>Title</th>
                             <th>Description</th>
                             <th>Image</th>
-                            <th>Edit/Delete</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,10 +38,10 @@
                             <td>{{$data->description}}</td>
                             <td><img src="{{asset($data->image)}}" alt="" height="50" width="100"></td>
                             <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            {{--                                <a href="{{route('admin.service.delete',$data->id)}}" class="delete" ><i class="material-icons" title="Delete"></i></a>--}}
-                            {{--<td><a href ='{{route('admin.service.update',$data->id)}}'>Edit</a></td>--}}
-                            <td><a href ='{{route('admin.service.delete',$data->id)}}'>Delete</a></td>
+                                <a href="{{route('admin.service.edit',$data->id)}}" ><i class="material-icons"  title="Edit">&#xE254;</i></a>
+                            </td>
+                            <td>
+                                <a href="{{route('admin.service.delete',$data->id)}}" class="btn btn-danger" role="button">Delete</a></td>
                             </td>
                         </tr>
                         @endforeach
@@ -156,7 +157,7 @@
     <div id="deleteEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form>
+
                     <div class="modal-header">
                         <h4 class="modal-title">Delete Employee</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -166,10 +167,11 @@
                         <p class="text-warning"><small>This action cannot be undone.</small></p>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-danger" value="Delete">
+                        {{--<a href ='{{route('admin.service.delete',$data->id)}}'></a>--}}
+                        <a href="{{route('admin.service.delete',$data->id)}}" class="btn btn-danger" role="button">Delete</a>
+                        {{--<input type="submit" class="btn btn-danger" value="Delete">--}}
                     </div>
-                </form>
+
             </div>
         </div>
     </div>

@@ -29,7 +29,8 @@
                             <th>Date</th>
                             <th>Client Type</th>
                             <th>Image</th>
-                            <th>Edit/Delete</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
 
                         </tr>
                     </thead>
@@ -45,8 +46,11 @@
                             <td><img src="{{asset($data->image)}}" alt="" height="50" width="100"></td>
 
                             <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="{{route('admin.case.edit',$data->id)}}"><i class="material-icons"  title="Edit">&#xE254;</i></a>
+                            </td>
+                            <td>
+                                <a href="{{route('admin.case.delete',$data->id)}}" class="btn btn-danger" role="button">Delete</a></td>
+
                             </td>
                         </tr>
                         @endforeach
@@ -87,12 +91,17 @@
                             <label>Lawyer Name</label>
                             <input name="lawyer_name" type="text" class="form-control" required>
                         </div>
-                        {{----}}
-                        {{--<div class="form-group">--}}
-                            {{--<label>Client Type</label>--}}
-                            {{--<input name="client_type" type="text" class="form-control" required>--}}
-                        {{--</div>--}}
 
+                        <div class="form-group">
+                            <label for="client_type">Client Type</label>
+                            <select name="client_type" class="form-control select2" style="width: 100%;">
+                                <option value="Employer" selected="selected">Employer</option>
+                                <option value="Business">Business</option>
+                                <option value="People">People</option>
+                                <option value="Sponsor">Sponsor</option>
+                                <option value="Attorney">Attorney</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label>Description</label>
                             <textarea name="description" class="form-control" required></textarea>

@@ -29,7 +29,8 @@
                             <th>Date</th>
                             <th>Time</th>
                             <th>Description</th>
-                            <th>Edit/Delete</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,8 +44,10 @@
                             <td>{{$data->time}}</td>
                             <td>{{$data->description}}</td>
                             <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="{{route('admin.appointment.edit',$data->id)}}"><i class="material-icons" title="Edit">&#xE254;</i></a>
+                            </td>
+                            <td>
+                                <a href="{{route('admin.appointment.delete',$data->id)}}" class="btn btn-danger" role="button">Delete</a></td>
                             </td>
                         </tr>
                     @endforeach

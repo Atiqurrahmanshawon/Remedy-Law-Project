@@ -26,7 +26,8 @@
                             <th>Title</th>
                             <th>Description</th>
                             <th>Image</th>
-                            <th>Edit/Delete</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,8 +38,10 @@
                             <td>{{$data->description}}</td>
                             <td><img src="{{asset($data->image)}}" alt="" height="50" width="100"></td>
                             <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="{{route('admin.blog.edit',$data->id)}}"><i class="material-icons" title="Edit">&#xE254;</i></a>
+                            </td>
+                            <td>
+                                <a href="{{route('admin.blog.delete',$data->id)}}" class="btn btn-danger" role="button">Delete</a></td>
                             </td>
                         </tr>
                         @endforeach
@@ -139,7 +142,7 @@
                   </div>
                 </div>
 
-                    </div>
+
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                         <input type="submit" class="btn btn-info" value="Save">

@@ -66,9 +66,34 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'admin','middleware'
     Route::post('save/lawyer','AdminFormController@lawyerSave')->name('form.lawyer');
     Route::post('save/appointment','AdminFormController@appointmentSave')->name('form.appointment');
 
+//------------------------Edit, Update, Delete---------------------------------------
+    Route::get('case/edit{id}','DashboardController@caseEdit')->name('case.edit');
+    Route::post('case/update{id}','AdminFormController@caseUpdate')->name('update.case');
+    Route::get('case/delete{id}','AdminFormController@caseDelete')->name('case.delete');
 
-    Route::post('/service/update{id}','AdminFormController@update')->name('service.update');
-    Route::get('/service/delete/{id}','AdminFormController@serviceDelete')->name('service.delete');
+    Route::get('blog/edit/{id}','DashboardController@blogEdit')->name('blog.edit');
+    Route::post('blog/update{id}','AdminFormController@blogUpdate')->name('update.blog');
+    Route::get('blog/delete{id}','AdminFormController@blogDelete')->name('blog.delete');
+
+    Route::get('service/edit/{id}','DashboardController@serviceEdit')->name('service.edit');
+    Route::post('service/update{id}','AdminFormController@serviceUpdate')->name('update.service');
+    Route::get('service/delete{id}','AdminFormController@serviceDelete')->name('service.delete');
+
+    Route::get('testimonials/edit{id}','DashboardController@testimonialsEdit')->name('testimonials.edit');
+    Route::post('testimonials/update{id}','AdminFormController@testimonialsUpdate')->name('update.testimonial');
+    Route::get('testimonials/delete{id}','AdminFormController@testimonialsDelete')->name('testimonials.delete');
+
+    Route::get('category/edit{id}','DashboardController@categoryEdit')->name('category.edit');
+    Route::post('category/update{id}','AdminFormController@categoryUpdate')->name('update.category');
+    Route::get('category/delete{id}','AdminFormController@categoryDelete')->name('category.delete');
+
+    Route::get('lawyer/edit{id}','DashboardController@lawyerEdit')->name('lawyer.edit');
+    Route::post('lawyer/update{id}','AdminFormController@lawyerUpdate')->name('update.lawyer');
+    Route::get('lawyer/delete{id}','AdminFormController@lawyerDelete')->name('lawyer.delete');
+
+    Route::get('appointment/edit{id}','DashboardController@appointmentEdit')->name('appointment.edit');
+    Route::post('appointment/update{id}','AdminFormController@appointmentUpdate')->name('update.appointment');
+    Route::get('appointment/delete{id}','AdminFormController@appointmentDelete')->name('appointment.delete');
 
 });
 
@@ -84,7 +109,4 @@ Route::group(['as'=>'user.','prefix'=>'user','namespace'=>'user','middleware'=>[
 
 
 
-//  Route::get('/user/appointment-table','UserController@appointmentTable')->name('appointment-table');
-//  Route::get('/user/lawyer-table','UserController@lawyerTable')->name('user-lawyer-table');
-//  Route::get('/user/main','UserController@dashboard')->name('user-main');
 
